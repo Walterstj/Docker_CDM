@@ -1,3 +1,5 @@
+# Docker Swarm- Setup Worker and Manager Nodes
+
 1. Create a 3 Nodes Cluster ( 1 for master node and other 2 are for worker nodes)
 
 2. Name these as master, worker01, worker02 nodes
@@ -25,5 +27,8 @@
 13. Command docker node promote worker01 worker02 will promote worker01 and worker02 as manager node.
 
 14. Command docker node demote worker01 worker02 will promote worker01 and worker02 as worker node.
+
+# Run Below command to run docker visualizer
+docker service create  --name=viz --publish=8080:8080/tcp  --constraint=node.role==manager --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock dockersamples/visualizer
 
 
