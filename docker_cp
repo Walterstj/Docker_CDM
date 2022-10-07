@@ -1,0 +1,15 @@
+ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    3  chmod +x /usr/local/bin/docker-compose
+    4  vi docker-compose.yaml
+    5  docker -compose up -d
+    6  docker-compose up -d
+    7  docker network ls
+    8  docker ps
+    9  docker rm -f n1 h1
+   10  docker ps -a
+   11  clear
+   12  docker ps
+   13  ls
+   14  cat docker-compose.yaml 
+   15  docker-compose down
+   16  docker ps -a
