@@ -1,0 +1,25 @@
+
+   
+   74  docker images
+   75  docker run -itd --name web1 nginx
+   76  docker run -itd --name web2 nginx
+   77  docker ps
+   78  clear
+   79  docker ps
+   80  docker exec -it web1 sh
+   81  docker exec -it web1 bash
+   82  ls
+   83  touch 1.txt 1.jar
+   84  ls
+   85  docker cp 1.jar web1:/test
+   86  docker exec -it web1 bash
+   87  docker ps
+   88  docker stop web1
+   89  docker ps
+   90  docker ps -a
+   91  clear
+   92  docker cp 1.txt web1:/test
+   93  docker exec -it web1 bash
+   94  docker start web1
+   95  docker exec -it web1 bash9  docker cp 1.jar web1:/test
+

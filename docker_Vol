@@ -1,0 +1,109 @@
+hostname Docker_server
+   76  hostname Dockerserver
+   77  bash
+   78  clear
+   79  docker volume ls
+   80  docker volume rm a0e461f3c9161e583b319c4d070778cdcfbbde581aea657571e00ea0361c4458
+   81  docker volume ls
+   82  clear
+   83  docker ps
+   84  docker rm -f web
+   85  docker ps -a
+   86  clear
+   87  docker images
+   88  docker rmi -f webimag ubuntu
+   89  docker images
+   90  docker rmi -f ubuntu:18.04
+   91  docker images
+   92  clear 
+   93  docker images -a
+   94  docker pull ubuntu
+   95  docker images
+   96  docker run -itd --name c1 --mount type=tmpfs,destination=/demo ubuntu
+   97  docker exec -it c1
+   98  docker exec -it c1 bash
+   99  docker rm -f c1
+  100  docker ps
+  101  docker ps -a
+  102  clear
+  103  ls /var/lib/docker
+  104  ls /var/lib/docker/volumes/
+  105  ls
+  106  ls /var/lib/docker/volumes/
+  107  docker volume --help
+  108  docker volume create demo-vol
+  109  ls
+  110  cd /var/lib/docker/volumes/
+  111  ls
+  112  cd ..
+  113  cd ../..
+  114  cd ..
+  115  clear
+  116  ls
+  117  cd home
+  118  ls
+  119  cd ubuntu/
+  120  ls
+  121  clear
+  122  docker volume ls
+  123  ls /var/lib/docker/volumes/
+  124  ls /var/lib/docker/volumes/demo-vol/
+  125  ls /var/lib/docker/volumes/demo-vol/_data/
+  126  ls
+  127  clear
+  128  ls
+  129  docker ps
+  130  docker ps -a
+  131  docker images
+  132  ls /var/lib/docker/
+  133  ls /var/lib/docker/volumes/
+  134  docker volume --help
+  135  clear
+  136  docker volume ls
+  137  docker volume create demo-volu
+  138  docker volume ls
+  139  ls /var/lib/docker/volumes/
+  140  ls /var/lib/docker/volumes/demo-vol
+  141  docker run -itd --name c2 --mount source=demo-vol,destination=dbfiles ubuntu
+  142  docker run -itd --name c2 --mount source=demo-vol,destination=/dbfiles ubuntu
+  143  docker exec -it c2 bash
+  144  docker inspect c2
+  145  docker exec -it c2 bash
+  146  ls /var/lib/docker/volumes/demo-vol
+  147  ls /var/lib/docker/volumes/demo-vol/_data/
+  148  docker rm -f c2
+  149  docker ps -a
+  150  ls /var/lib/docker/volumes/demo-vol/_data/
+  151  docker run -itd --name c1 --mount source=demo-vol,destination=/bkpfiles ubuntu
+  152  docker exec -it c1 bash
+  153  docker volume rm -f demo-volu
+  154  ls /var/lib/dokcer/volumes
+  155  ls /var/lib/docker/volumes
+  156  docker volume rm -f demo-vol
+  157  ls /var/lib/docker/volumes
+  158  docker rm c1
+  159  docker rm -f c1
+  160  docker volume rm -f demo-vol
+  161  ls /var/lib/docker/volumes
+164  ls
+  165  rm *
+  166  ls
+  167  clear
+  168  mkdir mydb
+  169  docker run -itd --name c1 -v /home/ubuntu/mydb:/demo ubuntu
+  170  docker exec -it c1 bash
+  171  ls
+  172  ls mydb/
+  173  docker inspect c1
+  174  cd mydb/
+  175  touch 5 6
+  176  ls
+  177  docker exec -it c1 bash
+  178  docker restart c1
+  179  docker rm -f c1
+  180  docker ps
+  181  docker ps -a
+  182  clear
+  183  ls
+  184  docker run -itd --name c2 -v /home/ubuntu/mydb:/demo1 centos
+  185  docker exec -it c2 bash

@@ -1,0 +1,8 @@
+ 101  docker images
+  102  vi Dockerfile
+  103  docker build . -t webimag
+ 1  docker images
+    2  docker run -itd --name web webimag
+    3  docker exec -it web bash
+    4  clear
+

@@ -1,0 +1,70 @@
+apt update -y
+    3  apt install docker.io -y
+    4  docker ps
+    5  clear
+    6  docker run -itd --name web -p 80:82 ubuntu
+    7  docker ps
+    8  docker exec -it web bash
+    9  docker ps
+   10  docker exec -it web bash
+   11  clear
+   12  docker images
+   13  docker ps
+   14  touch test.html
+   15  ls
+   16  docker cp test.html web:/var/www/html
+   17  docker exec -it web bash
+   18  cat test.html 
+   19  vim test.html 
+   20  docker cp test.html web:/var/www/html
+   21  clear
+   22  docker commit web myimag
+   23  docker images
+   24  docker rmi ubuntu
+   25  docker rmi -f ubuntu
+   26  ddocker images
+   27  docker images
+   28  docker run -itd --name web1 -p 84:80 myimag
+   29  docker ps
+   30  docker exec -it web1 bash
+   31  docker images
+   32  clear
+   33  docker ps
+   34  docker rm -f web web 1
+   35  docker rm -f web web1
+   36  docker ps
+   37  docker ps -a
+   38  clear
+   39  docker images
+   40  docker save myimag > myimag.tar
+   41  ls
+   42  docker rmi myimag
+   43  docker images
+   44  ls
+   45  clear
+   46  docker load < myimag.tar
+   47  docker images
+   48  docker run -itd --name c1 myimag
+   49  docker ps
+   50  docker exec -it c1 bash
+   51  clear
+   52  docker run -itd --name c2 -p 80:80 myimag
+   53  docker exec -it c2 bash
+   54  docker ps
+   55  docker rm -f c1 c2
+   56  docker ps
+   57  docker ps -a
+   58  clear
+   59  docker run -itd --name c1 -p 80:82 myimag
+   60  service apache2 status
+   61  docker exec -it c1 bash
+   62  docker run -itd --name c2 -p 84:80 myimag
+   63  docker exec -it c2 bash
+   64  docker images
+   65  docker image tag myimag walterstj/myimag
+   66  docker images
+   67  clear
+   68  docker images
+   69  docker login
+   70  docker push myimag
+   71  docker push walterstj/myimag

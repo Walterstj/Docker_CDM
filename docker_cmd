@@ -1,0 +1,98 @@
+pt update -y
+    2  apt install docker.io -y
+    3  docker ps
+    4  clear
+    5  docker container ls
+    6  docker --help
+    7  docker container ls
+    8  docker container ls --all
+    9  docker ps -a
+   10  clear
+   11  docker run -it --name c1
+   12  docker pull ubuntu
+   13  docker pull centos
+   14  docker pull nginx
+   15  clear
+   16  docker images
+   17  docker container image
+   18  docker run -it --name ci ubuntu
+   19  docker ps
+   20  docker ps -a
+   21  clear
+   22  docker run -it --name c2 -d ubuntu
+   23  docker ps -a
+   24  clear
+   25  docker ps -a
+   26  clear
+   27  docker ps -a
+   28  clear
+   29  docker start c1
+   30  docker ps -a
+   31  docker start ci
+   32  docker ps -a
+   33  docker rename ci c1
+   34  docker ps 
+   35  clear
+   36  docker ps
+   37  docker stop c1
+   38  docker ps -a
+   39  docker start c1
+   40  docker ps -a
+   41  docker kill c1
+   42  docker ps
+   43  docker ps -a
+   44  clear
+   45  docker start c1
+   46  docker ps 
+   47  docker ps -a
+   48  docker pause c1
+   49  docker ps
+   50  docker unpause c1
+   51  docker ps
+   52  docker restart c1
+   53  docker ps
+   54  clear
+   55  docker rm c1
+   56  docker stop c1
+   57  docker rm c1
+   58  docker ps -a
+   59  docker rm -f c2
+   60  docker ps -a
+   61  clear
+   62  docker run -itd --name web nginx
+   63  docker ps
+   64  docker stats web
+   65  docker ps
+   66  docker run -itd --name web1 -m 9m nginx
+   67  docker ps
+   68  docker stats web1
+   69  docker run -itd --name web2 -c 614 nginx
+   70  docker stats web2
+   71  docker inspect  web2
+   72  docker inspect  web2 | grep Cpu
+   73  docker inspect  web2 | grep Mem
+   74  docker inspect  web1 | grep Cpu
+   75  docker inspect  web1 | grep Mem
+   76  clear
+   77  docker container update -m 16m web1
+   78  docker update -m 16m web1
+   79  docker top web1
+   80  docker update -m16m web1
+   81  clear
+   82  docker exec -it web1 sh
+   83  docker ps -a
+   84  docker exec -it web1 bash
+   85  docker ps
+   86  clear
+   87  docker exec -it web1 bash
+   88  ls
+   89  touch 1.txt 1.jar
+   90  ls
+   91  docker cp 1.jar web1:/test
+   92  docker cp 1.jar web1:/root/test
+   93  docker exec web1 sh
+   94  ls
+   95  docker exec -it web1 sh
+   96  clear
+   97  docker exec -it web1 bash
+   98  docker scp 1.jar web1:/root/test

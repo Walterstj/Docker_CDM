@@ -1,0 +1,53 @@
+2  ip -a
+    3  clear
+    4  ip a
+    5  docker run -itd --name c1 ubuntu
+    6  ip a
+    7  docker run -itd --name c2 ubuntu
+    8  ip a
+    9  docker inspect c1
+   10  docker inspect c2
+   11  docker exec -i c1 bash
+   12  docker exec -it c1 bash
+   13  docker network ls
+   14  docker rm -f c1 c2
+   15  docker network --help
+   16  docker network create -d bridge br1
+   17  docker network ls
+   18  ip a
+   19  docker run -itd --name b1 --network br1 ubuntu
+   20  docker inspect b1
+   21  ip a
+   22  clear
+   23  docker run -itd --name c1 ubuntu
+   24  docker ps
+   25  docker inspect c1
+   26  docker exec -it b1 bash
+   27  docker rm -f b1 c1
+   28  docker network rm br1
+   29  docker network ls
+   30  docker run -itd --name h1 --network host ubuntu
+   31  docker network inspect host
+   32  docker network inspect bridge
+   33  docker network inspect h1
+   34  docker inspect h1
+   35  docker rm -f h1
+   36  docker run -itd --name h1 --network host nginx
+   37  curl localhost
+   38  docker run -itd --name h2 --network host nginx
+   39  docker ps -a
+   40  docker logs h2
+   41  docker logs h1
+   42  clear
+   43  docker rm -f h2
+   44  ls
+   45  docker ps -a
+   46  docker logs h1
+   47  curl localhost
+   48  docker run -itd --name n1 network none ubuntu
+   49  docker run -itd --name n1 --network none ubuntu
+   50  docker inspect n1
+   51  docker network disconnect none n1
+   52  docker network connect bridge n1
+   53  docker inspect n1
+

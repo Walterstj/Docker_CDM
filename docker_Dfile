@@ -1,0 +1,32 @@
+72  docker push walterstj/myimag
+   73  history
+   74  clear
+   75  hostname Docker_server
+   76  hostname Dockerserver
+   77  bash
+   78  clear
+   79  docker ps
+   80  docker rm -f c1 c2
+   81  docker ps -a
+   82  clear
+   83  docker isnpect local_registry
+   84  docker inspect local_registry
+   85  ip a
+   86  ip
+   87  ip a
+   88  ifcong
+   89  ifconfig
+   90  clear
+   91  ls
+   92  clear
+   93  docker images
+   94  docker rm -f $(docker ps -a -q)
+   95  docker images
+   96  docker rmi -f $(docker image -a -q)
+   97  clear
+   98  docker system prune -f
+   99  docker images
+  100  docker rmi -f $(docker image ls -a -q)
+  101  docker images
+  102  vi Dockerfile
+  103  docker build . -t webimag
