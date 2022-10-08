@@ -1,0 +1,28 @@
+Docker Swarm- Setup Worker and Manager Nodes
+1. Create a 3 Nodes Cluster ( 1 for master node and other 2 are for worker nodes)
+
+2. Name these as master, worker01, worker02 nodes
+
+3. On master node run the command docker swarm init
+
+4. Copy the join command and run it on worker01 and worker02
+
+5. Run docker node ls command on master node. It should show all the nodes in active state
+
+6. Command  docker swarm join-token worker will give token value for worker node
+
+7  Command  docker swarm join-token manager will give token value for manager node
+
+8 Command docker info will give you swarm information as well like it is active or not
+
+9. Command docker swarm leave will leave the node(worker node) from the cluster and docker info will return Swarm as inactive.
+
+10. Command docker node rm worker01 will remove the worker from the list.
+
+11 Command docker node rm -f worker02 will forcefully remove the worker from the list .
+
+12 Command docker node inspect worker01 will inspect worker01 node.
+
+13. Command docker node promote worker01 worker02 will promote worker01 and worker02 as manager node.
+
+14. Command docker node demote worker01 worker02 will promote worker01 and worker02 as worker node.

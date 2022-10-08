@@ -1,0 +1,11 @@
+Run Below commands for Stack
+
+docker stack --help
+docker stack deploy -c stack.yml mystack
+docker stack ls
+docker stack services mystack
+docker service ps mystack_db
+docker service ps mystack_wordpress
+docker network ls
+docker stack ls
+docker stack rm mystack

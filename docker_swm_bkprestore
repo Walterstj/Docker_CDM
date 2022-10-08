@@ -1,0 +1,32 @@
+Docker Swarm- Backup and Restore
+Backup
+cd /var/lib/docker/
+
+tar -zcvf swarm.tar.gz swarm/
+
+docker node ls
+
+
+
+Delete the docker swarm folder
+
+rm -ifr swarm
+
+systemctl stop docker
+
+systemctl start docker
+
+docker node ls
+
+By this time you will not be able to access the cluster because swarm folder is deleted
+
+Restore 
+systemctl stop docker
+
+rm -fr swarm
+
+tar -xvzf swarm.tar.gz
+
+systemctl start docker
+
+docker node ls

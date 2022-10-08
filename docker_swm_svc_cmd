@@ -1,0 +1,89 @@
+Docker Swarm-Service Commands
+Find the help related the docker swarm service
+
+docker service --help
+
+docker service create --name webservice --replicas 3 -d nginx
+
+List the services
+
+docker service ls
+
+List the containers with their node name
+
+docker service ps webservice
+
+Remove a container and check that desired state of service automatically creates a replicated container
+
+docker service ps webservice
+
+Service Scale command
+
+docker service scale webservice=5
+
+docker service scale webservice=3
+
+Remove service
+
+docker service rm webservice
+
+Service port mapping
+
+docker service create --name webservice --replicas 3 --publish 80:80 -d nginx
+
+You can access the nginx service from any of the node.
+
+
+
+Docker service to run it on each server
+
+docker service rm webservice
+
+docker service create --name webservice -d --mode=global --publish=80:80 nginx
+
+Docker Constraint on manager node
+
+  docker service rm webservice
+
+  docker service create --name webservice -d --constraint="node.role==manager" --publish=80:80 nginx
+
+docker service scale webservice=3
+
+Docker Constraint on worker node
+
+  docker service rm webservice
+
+  docker service create --name webservice -d --constraint="node.role==worker" --publish=80:80 nginx
+
+docker service scale webservice=3
+
+docker service rm webservice
+
+
+Docker node labels (Create service on a specific environment)
+
+
+
+docker node update --label-add="env=prod" worker01
+
+docker service create --name webservice -d --constraint="node.labels.env==prod" --publish 80:80 nginx
+
+
+
+Docker service update and Rollback
+
+  
+
+docker service create --name redis --replicas 5 --update-delay 10s redis:3.0.6
+
+docker service ls
+
+docker service ps redis
+
+docker service update redis --image redis:3.0.7
+
+docker service update redis --image redis:21
+
+docker service ls
+
+docker service rollback redis
